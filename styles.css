@@ -1,0 +1,178 @@
+/* resetar para tirar os espaços que o navegador bota por padrão*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* tirar os pontos que aparecem por padrão na lista (ul) */
+ul {
+    list-style: none;
+}
+
+body {
+    background-image: url(./assets/bg.jpg);
+    background-position: top center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-color: #121214;
+}
+
+body * {
+    font-family: 'Inter', sans-serif;
+    line-height: 160%;
+}
+
+header {
+    padding-top: 32px;
+    height: calc(120px + 32px)
+}
+
+header div {
+    width: 120px;
+    margin: auto;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+
+    border-radius: 50%;
+
+    display: flex;
+    /*padding é o preenchimento, aqui faz o círculo 
+    "sair" de trás da imagem 4px*/
+    padding: 4px;
+
+    /*transition para quando aumentar a imagem, 
+    ter uma transição*/
+    transition: transform .3s;
+}
+
+/* header div over para mudar quando deixar
+o mouse em cima da foto aí*/
+header div:hover{
+    transform: scale(1.1)
+}
+
+header div img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+/*só pra visualizar melhor as bordas*/
+/*main  {
+border: 1px solid red
+}*/
+
+main {
+    max-width: 580px;
+    width: 90%;
+    margin: 32px auto;
+
+    display: grid;
+    gap: 24px;
+
+}
+
+section {
+    color: white;
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    padding-top: 4px;
+    border-radius: 10px;
+}
+
+section div {
+    background-color: #2a2634;
+    padding: 32px;
+    padding-top: 24px;
+    border-radius: 8px;    
+}
+
+section h2 {
+    letter-spacing: -0,47px;
+}
+
+section p {
+    letter-spacing: -0,18px;
+    color: #a1a1aa;
+}
+
+/*Display tem a ver com a visualização das caixas no html
+Display do tipo block, bloqueia uma linha inteira, faz com que
+o próximo elemento vá para baixo.
+O flex tem a ver com as caixas que estão dentro de outra. Com isso,
+todos os "li's" ficam lado a lado*/
+section ul {
+    display: flex;
+    flex-wrap: wrap;
+    /*o gap só funciona porque o display é flex*/
+    gap: 16px;
+    margin-top: 24px;
+}
+
+section ul li {
+    transition: transform .3s;
+}
+
+section ul li:hover {
+    transform: scale(1.1)
+}
+
+.games-list img {
+    width: 90px;
+    border-radius: 8px;
+}
+
+.channels-list img {
+    /*50% assim, fica redondo */
+    border-radius: 50%;
+    width: 70px;
+    border: 1px solid #443e54;
+}
+
+/* animation */
+
+header div {
+    animation: fromTop .7s .2s backwards;
+}
+
+main section {
+    animation: fromBottom .7s backwards;
+}
+
+/*main pega o section do filho número(nth) 1*/
+main section:nth-child(1) {
+    animation-delay: 0;
+}
+
+main section:nth-child(2) {
+    animation-delay: .4s;
+}
+
+main section:nth-child(3) {
+    animation-delay: .8s;
+}
+
+@keyframes fromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-30px)
+    }
+
+    to {
+        opacitY: 1;
+        transform: translateY(0)
+    }
+}
+
+@keyframes fromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(30px)
+    }
+
+    to {
+        opacitY: 1;
+        transform: translateY(0)
+    }
+}
+
+
+/*fromTop e fromBottom> inventados aqui*/
